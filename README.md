@@ -28,7 +28,7 @@ Once the application runs you should see something like this
 ## About the Service
 
 The service is a Forex Currency exchange service, which provides currency rates for target currencies based on a source currency for an exchange date.
-When a call is made for retrieval of exchange rates, it retrieves forex details from 3rd party forexApi and popluate them in the server db.
+When a call is made for retrieval of exchange rates, it retrieves forex details from 3rd party forexApi and populate them in the server db.
 For subsequent calls for the same criteria, data gets picked from the server db instead of making the 3rd party api call till the record hasn't expired.
 There is a configuration property "forex.service.expiryDateForCurrencyInSeconds" in application.yml file, after which created data in db gets expired and call gets made to 3rd party api.
 Expiry logic is only applicable for today's forex data. For today when multiple calls are made, it maintains only one record in db which will be re-inserted with latest upon expiration.
@@ -45,9 +45,7 @@ Most probably on testing current date data won't be available.
 So it's preferred to lookup date latest of yesterday.
 Integration with other 3rd party API is easy, and can be achieved by writing a client similiar to com.amohandas.forex.client.fixer.FixerClient and injecting that to ForexService
 
-
-
-Below are currently supported features:
+## Currently supported features:
 
 * Full integration with the latest **Spring** Framework: inversion of control, dependency injection, etc.
 * Packaging as a single jar with embedded container (tomcat 8): No need to install a container separately on the host just run using the ``java -jar`` command
@@ -58,6 +56,9 @@ Below are currently supported features:
 * Automatic CRUD functionality against the data source using Spring *Repository* pattern
 * Demonstrates MockMVC test framework with associated libraries
 * APIs are "self-documented" by Swagger2 using annotations
+* More Integration test on endpoints needs to be added in com.amohandas.forex.test.ForexControllerTest
+* Test coverage for this is in progress. Currently some of them are there in com.amohandas.forex.test.service.ForexServiceTest
+* More logging and adding metrics are pending
 
 Here are some endpoints we can call:
 

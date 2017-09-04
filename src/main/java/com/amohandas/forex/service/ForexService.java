@@ -80,7 +80,7 @@ public class ForexService {
     }
 
     public List<ForexCurrency> retrieveForexCurrenciesFromClient(String source, String targets, String exchangeDate, Set<ForexCurrency> storedValidForexCurrencies) {
-        List<ForexCurrency> forexCurrenciesFromClient;
+        List<ForexCurrency> forexCurrenciesFromClient = new ArrayList<>();
         String validTargetsForClientCall = targets;
         if (!StringUtils.isEmpty(targets) && storedValidForexCurrencies.size() > 0) {
             String[] targetArr = targets.split(",");
@@ -90,7 +90,11 @@ public class ForexService {
 
 
         }
-        forexCurrenciesFromClient = forexClient.getForexFor(source, validTargetsForClientCall, exchangeDate);
+        try {
+            forexCurrenciesFromClient = forexClient.getForexFor(source, validTargetsForClientCall, exchangeDate);
+        }catch(Exception e){
+            log.error("Forex client call failed with error:",e);
+        }
         return forexCurrenciesFromClient;
     }
 
