@@ -5,7 +5,7 @@ This is a Java / Maven / Spring Boot (version 1.5.6) application that can be use
 
 ## How to Run 
 
-This application is packaged as a jar which has Tomcat 8 embedded. You run it using the ```java -jar``` command.
+This application is packaged as a jar which has Tomcat 8 embedded.
 
 * Clone this repository 
 * Make sure you are using JDK 1.8 and Maven 3.x
