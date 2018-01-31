@@ -7,8 +7,8 @@ This is a Java / Maven / Spring Boot (version 1.5.6) application that can be use
 
 This application is packaged as a jar which has Tomcat 8 embedded.
 
-* Clone this repository 
-* Make sure you are using JDK 1.8 and Maven 3.x
+* Clone this repository .
+* Make sure you are using JDK 1.8 and Maven 3.x.
 * You can build the project and run the tests by running ```mvn clean package```
 * Once successfully built, you can run the service by one of these two methods:
 ```
